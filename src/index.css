@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #a148c4 rgba(45, 5, 53, 0.356);
+}
+
+body {
+    overflow: auto;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+:root {
+    --lg-pd-container: 24px;
+    --h-header: 60px;
+    /* màu sắc chủ đạo */
+    --dark-purple: #6a0dad;
+    --light-purple: #a18cd1;
+}
+.item-menu::before {
+    content: '';
+    position: absolute;
+    width: 0; /* Bắt đầu với chiều rộng bằng 0 */
+    height: 2px;
+    background: linear-gradient(to right, #6a40e4, #c05ee8);
+    bottom: 0;
+    left: 0;
+    transition: width 0.2s ease-in-out; /* Hiệu ứng mượt */
+}
+.item-menu.active::before {
+    width: 100%;
+}
+.item-menu:hover::before {
+    width: 100%; /* Khi hover, tăng chiều rộng lên 100% */
+}
+
+.bg-square {
+    background-image: linear-gradient(to right, #4f4f4f10 1px, transparent 1px),
+        linear-gradient(to bottom, #4f4f4f10 1px, transparent 1px);
+    background-size: 22px 22px; /* Kích thước ô vuông */
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spin-icon {
+    animation: spin 1s linear infinite;
+}
+
+.cardSkill {
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background-image: conic-gradient(transparent, transparent, transparent, #6a40e4);
+    animation: 4s spins linear infinite;
+    z-index: -1;
+}
+
+.cardSkill2 {
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background-image: conic-gradient(transparent, transparent, transparent, #c05ee8);
+    animation: 4s spins linear infinite;
+    animation-delay: -2s;
+}
+
+@keyframes spins {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
